@@ -18,6 +18,12 @@ docker build --force-rm -t sbt-scala .
 docker run -it sbt-scala
 ```
 
+# Advanced Usage
+
+Where this comes in handy is when you have a docker composed environment with dependencies like Consul, Vault, etc.
+
+You can run this sbt-scala docker container as if it's on the docker network, so you can do local-like development.
+
 # License
 
 MIT 
