@@ -16,10 +16,13 @@ RUN cd /tmp \
     && ln -s /usr/share/scala/bin/scala /usr/bin/scala \
     && wget https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/${SBT_VERSION}/jars/sbt-launch.jar \
     && wget https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/${SBT_VERSION}/jars/sbt-launch.jar.asc \
-    && mv ./sbt-launch.* /usr/share/scala
+    && mv ./sbt-launch.* /usr/share/scala \
+    && mkdir /src
 
 COPY sbt /usr/share/scala/sbt
 
 RUN ln -s /usr/share/scala/sbt /usr/bin/sbt
+
+VOLUME /src
 
 ENTRYPOINT /bin/bash
