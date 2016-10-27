@@ -21,7 +21,7 @@ RUN cd /tmp \
 
 COPY sbt /usr/share/scala/sbt
 
-RUN ln -s /usr/share/scala/sbt /usr/bin/sbt
+RUN ln -s /usr/share/scala/sbt /usr/bin/sbt && sbt sbtVersion
 
 VOLUME /src
 
