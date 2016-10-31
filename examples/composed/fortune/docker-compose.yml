@@ -1,0 +1,21 @@
+version: '2'
+services:
+  fortune1:
+    image: fortune
+    hostname: fortune1
+    mem_limit: 64MB
+    expose:
+     - "17"
+    networks:
+      - fortune
+  fortune2:
+    image: fortune
+    hostname: fortune2
+    mem_limit: 64MB
+    expose:
+     - "17"
+    networks:
+      - fortune
+networks:
+  fortune:
+    driver: bridge
