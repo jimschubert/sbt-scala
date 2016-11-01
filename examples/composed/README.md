@@ -6,7 +6,13 @@ Suppose you're doing microservices development in which you're testing changes a
 
 This example spins up two containers in a composed network called `fortune_fortune`. Each container exposes port 17 only within the virtual network.
 
+Open a terminal and start the composed QOTD services by running `./up`.
+
 # Run it
+
+To run the QOTD client against each host on the internal network...
+
+In another terminal window,
 
 ```
 docker run -it --net=fortune_fortune -v $(pwd)/src:/src --workdir=/src jimschubert/sbt-scala:latest
@@ -15,7 +21,7 @@ docker run -it --net=fortune_fortune -v $(pwd)/src:/src --workdir=/src jimschube
 Once in the shell, run `Example.scala` to query the QOTD port for the two composed services:
 
 ```
-scala Example.scala fortune1 fortune2
+scala Example.scala fortune1 fortune2 fortune1
 ```
 
 This queries two services on a composed network which doesn't expose the ports to the host.
